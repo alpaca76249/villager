@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <div>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap" rel="stylesheet">
+    </div>
+    <div>
+        <title>Minecarft Villager</title>
+        <link rel="shortcut icon" href="favicon.ico">
+    </div>
+    <style>
+        #mago{font-size: 50px; position: absolute; margin-left: 12px;}
+        #villager{width: 250px; margin-left: 330px; margin-top: 70px;}
+        #list{width: 200px; margin-left: 120px; position: absolute; margin-top: 180px;}
+        #job{width: 200px; position: absolute; margin-left: 490px; margin-top: 20px;}
+        #career{font-size: 30px; font-family: 20px; margin-top: 127px; margin-left: 172px; position: absolute;}
+        #job_text{text-align: center; font-size: 50px; font-family: 30px; margin-top: 12px; position: absolute;}
+        .b{width: 0; height: 0; position: fixed;}
+        .x{border-bottom: 50px solid transparent; border-top: 50px solid transparent; margin-top: 250px;}
+        .y{border-bottom: 30px solid transparent; border-top: 30px solid transparent; margin-top: 270px;}
+        .villager_r{margin-left: 450px; border-left: 50px solid #4CAF50; border-right: 50px solid transparent;}
+        .villager_l{margin-left: -450px; border-left: 50px solid transparent; border-right: 50px solid #4CAF50;}
+        .b_r{margin-left: 340px; border-left: 30px solid #848484; border-right: 30px solid transparent;}
+        .b_l{margin-left: 40px; border-left: 30px solid transparent; border-right: 30px solid #848484;}
+        div{display: inline;}
+        body{font-family: 'Barlow', sans-serif; margin: 0px;}
+    </style>
+    <script>
+        let nun=1
+        let a=1;
+
+        function next(){
+            if ( nun==1 ) {document.getElementById("list").src="사서 초심자.png"; 
+            document.getElementById("villager").src="v 사서.webp"; 
+            document.getElementById("job").src="독서대.png"; nun=2;
+            document.getElementById("job_text").innerText="사서"} 
+            else if ( nun==2 ) {document.getElementById("list").src="화살제조인 초심자.png";
+            document.getElementById("villager").src="v 화살제조인.webp"; 
+            document.getElementById("job").src="화살제작대.png"; nun=3;
+            document.getElementById("job_text").innerText="화살제조인"}
+            else if ( nun==3 ) {document.getElementById("list").src="성직자 초심자.png"; 
+            document.getElementById("villager").src="v 성직자.webp"; 
+            document.getElementById("job").src="양조기.png"; nun=4;
+            document.getElementById("job_text").innerText="성직자"} 
+            else if ( nun==4 ) {document.getElementById("list").src="석공 초심자.png"; 
+            document.getElementById("villager").src="v 석공.webp"; 
+            document.getElementById("job").src="석재 절단기.png"; nun=5;
+            document.getElementById("job_text").innerText="석공"} 
+            else if ( nun==5 ) {document.getElementById("list").src="도축업자 초심자.png"; 
+            document.getElementById("villager").src="v 도축업자.webp"; 
+            document.getElementById("job").src="훈연기.png"; nun=6;
+            document.getElementById("job_text").innerText="도축업자"} 
+            else if ( nun==6 ) {document.getElementById("list").src="어부 초심자.png"; 
+            document.getElementById("villager").src="v 어부.png";
+            document.getElementById("job").src="통.png";  nun=7;
+            document.getElementById("job_text").innerText="어부"} 
+            else if ( nun==7 ) {document.getElementById("list").src="양치기 초심자.png"; 
+            document.getElementById("villager").src="v 양치기.png";
+            document.getElementById("job").src="베틀.png";  nun=8;
+            document.getElementById("job_text").innerText="양치기"} 
+            else if ( nun==8 ) {document.getElementById("list").src="무기 대장장이 초심자.png"; 
+            document.getElementById("villager").src="v 무기 대장장이.webp"; 
+            document.getElementById("job").src="숫돌.png"; nun=9;
+            document.getElementById("job_text").innerText="무기 대장장이"} 
+            else if ( nun==9 ) {document.getElementById("list").src=" 지도제작자 초심자.png"; 
+            document.getElementById("villager").src="v 지도제작자.webp";
+            document.getElementById("job").src="지도 제작대.png"; nun=10;
+            document.getElementById("job_text").innerText="지도제작자"} 
+            else if ( nun==10 ) {document.getElementById("list").src="갑옷 제조인 초심자.png"; 
+            document.getElementById("villager").src="v 갑옷 제조인.webp"; 
+            document.getElementById("job").src="용광로.png"; nun=11;
+            document.getElementById("job_text").innerText="갑옷 제조인"} 
+            else if ( nun==11 ) {document.getElementById("list").src="도구 대장장이 초심자.png"; 
+            document.getElementById("villager").src="v 도구 대장장이.webp"; 
+            document.getElementById("job").src="대장장이 작업대.png"; nun=12;
+            document.getElementById("job_text").innerText="도구 대장장이"} 
+            else if ( nun==12 ) {document.getElementById("list").src="가죽세공인 초심자.png"; 
+            document.getElementById("villager").src="v 가죽세공인.webp"; 
+            document.getElementById("job").src="가마솥.png"; nun=13;
+            document.getElementById("job_text").innerText="가죽세공인"}
+            else {document.getElementById("list").src="농부 초심자.png"; 
+            document.getElementById("villager").src="v 농부.png"; 
+            document.getElementById("job").src="퇴비통.png"; nun=1;
+            document.getElementById("job_text").innerText="농부"}
+        }
+        function before(){
+            if ( nun==1 ) {document.getElementById("list").src="가죽세공인 초심자.png"; 
+            document.getElementById("villager").src="v 가죽세공인.webp"; 
+            document.getElementById("job").src="가마솥.png"; nun=13;
+            document.getElementById("job_text").innerText="가죽세공인"} 
+            else if ( nun==2 ) {document.getElementById("list").src="농부 초심자.png";
+            document.getElementById("villager").src="v 농부.png"; 
+            document.getElementById("job").src="퇴비통.png"; nun=1;
+            document.getElementById("job_text").innerText="농부"}
+            else if ( nun==3 ) {document.getElementById("list").src="사서 초심자.png"; 
+            document.getElementById("villager").src="v 사서.webp"; 
+            document.getElementById("job").src="독서대.png"; nun=2;
+            document.getElementById("job_text").innerText="사서"} 
+            else if ( nun==4 ) {document.getElementById("list").src="화살제조인 초심자.png";
+            document.getElementById("villager").src="v 화살제조인.webp"; 
+            document.getElementById("job").src="화살제작대.png"; nun=3;
+            document.getElementById("job_text").innerText="화살제조인"}
+            else if ( nun==5 ) {document.getElementById("list").src="성직자 초심자.png"; 
+            document.getElementById("villager").src="v 성직자.webp"; 
+            document.getElementById("job").src="양조기.png"; nun=4;
+            document.getElementById("job_text").innerText="성직자"} 
+            else if ( nun==6 ) {document.getElementById("list").src="석공 초심자.png"; 
+            document.getElementById("villager").src="v 석공.webp"; 
+            document.getElementById("job").src="석재 절단기.png"; nun=5;
+            document.getElementById("job_text").innerText="석공"} 
+            else if ( nun==7 ) {document.getElementById("list").src="도축업자 초심자.png"; 
+            document.getElementById("villager").src="v 도축업자.webp"; 
+            document.getElementById("job").src="훈연기.png"; nun=6;
+            document.getElementById("job_text").innerText="도축업자"} 
+            else if ( nun==8 ) {document.getElementById("list").src="어부 초심자.png"; 
+            document.getElementById("villager").src="v 어부.png";
+            document.getElementById("job").src="통.png";  nun=7;
+            document.getElementById("job_text").innerText="어부"} 
+            else if ( nun==9 ) {document.getElementById("list").src="양치기 초심자.png"; 
+            document.getElementById("villager").src="v 양치기.png";
+            document.getElementById("job").src="베틀.png";  nun=8;
+            document.getElementById("job_text").innerText="양치기"} 
+            else if ( nun==10 ) {document.getElementById("list").src="무기 대장장이 초심자.png"; 
+            document.getElementById("villager").src="v 무기 대장장이.webp"; 
+            document.getElementById("job").src="숫돌.png"; nun=9;
+            document.getElementById("job_text").innerText="무기 대장장이"} 
+            else if ( nun==11 ) {document.getElementById("list").src=" 지도제작자 초심자.png"; 
+            document.getElementById("villager").src="v 지도제작자.webp";
+            document.getElementById("job").src="지도 제작대.png"; nun=10;
+            document.getElementById("job_text").innerText="지도제작자"} 
+            else if ( nun==12 ) {document.getElementById("list").src="갑옷 제조인 초심자.png"; 
+            document.getElementById("villager").src="v 갑옷 제조인.webp"; 
+            document.getElementById("job").src="용광로.png"; nun=11;
+            document.getElementById("job_text").innerText="갑옷 제조인"}
+            else {document.getElementById("list").src="도구 대장장이 초심자.png"; 
+            document.getElementById("villager").src="v 도구 대장장이.webp"; 
+            document.getElementById("job").src="대장장이 작업대.png"; nun=12;
+            document.getElementById("job_text").innerText="도구 대장장이"}
+        }
+
+        function l_next(){
+            if (a==5){a=1}
+            else {a=a+1}
+            change()
+        }
+        function l_before(){
+            if (a==1){a=5}
+            else {a=a-1}
+            change()
+        }
+        function change(){
+            if(nun==1){
+                if(a==1){
+                    document.getElementById("list").src="농부 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="농부 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="농부 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="농부 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="농부 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==2){
+                if(a==1){
+                    document.getElementById("list").src="사서 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="사서 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="사서 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="사서 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="사서 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==3){
+                if(a==1){
+                    document.getElementById("list").src="화살제조인 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="화살제조인 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="화살제조인 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="화살제조인 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="화살제조인 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==4){
+                if(a==1){
+                    document.getElementById("list").src="성직자 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="성직자 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="성직자 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="성직자 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="성직자 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==5){
+                if(a==1){
+                    document.getElementById("list").src="석공 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="석공 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="석공 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="석공 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="석공 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==6){
+                if(a==1){
+                    document.getElementById("list").src="도축업자 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="도축업자 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="도축업자 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="도축업자 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="도축업자 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==7){
+                if(a==1){
+                    document.getElementById("list").src="어부 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="어부 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="어부 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="어부 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="어부 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==8){
+                if(a==1){
+                    document.getElementById("list").src="양치기 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="양치기 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="양치기 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="양치기 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="양치기 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==9){
+                if(a==1){
+                    document.getElementById("list").src="무기 대장장이 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="무기 대장장이 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="무기 대장장이 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="무기 대장장이 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="무기 대장장이 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==10){
+                if(a==1){
+                    document.getElementById("list").src="지도제작자 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="지도제작자 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="지도제작자 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="지도제작자 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="지도제작자 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==11){
+                if(a==1){
+                    document.getElementById("list").src="갑옷 제조인 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="갑옷 제조인 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="갑옷 제조인 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="갑옷 제조인 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="갑옷 제조인 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else if(nun==12){
+                if(a==1){
+                    document.getElementById("list").src="도구 대장장이 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="도구 대장장이 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="도구 대장장이 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="도구 대장장이 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="도구 대장장이 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }else{
+                if(a==1){
+                    document.getElementById("list").src="가죽세공인 초심자.png";
+                    document.getElementById('career').innerText = "초심자";
+                }else if(a==2){
+                    document.getElementById("list").src="가죽세공인 수습생.png";
+                    document.getElementById('career').innerText = "수습생";
+                }else if(a==3){
+                    document.getElementById("list").src="가죽세공인 기능공.png";
+                    document.getElementById('career').innerText = "기능공";
+                }else if(a==4){
+                    document.getElementById("list").src="가죽세공인 전문가.png";
+                    document.getElementById('career').innerText = "전문가";
+                }else{
+                    document.getElementById("list").src="가죽세공인 달인.png";
+                    document.getElementById('career').innerText = "달인";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="mago">ALPACA</div>
+    <div>
+        <img id="villager" src="v 농부.png"/>
+
+        <img id="list" src="농부 초심자.png">
+    
+        <img id="job" src="퇴비통.png">
+
+        <div onclick="before()" class="b x villager_l"></div>
+        <div onclick="next()" class="b x villager_r"></div>
+
+        <div onclick="l_before()" class="b y b_l"></div>
+        <div onclick="l_next()" class="b y b_r"></div>
+
+        <div id="job_text">농부</div>
+        <div id="career">초심자</div>
+    </div>
+</body>
+</html>
+
+<!--
+    등급
+        초심자 - 수습생 - 기능공 - 전문가 - 달인
+    직업
+        1. 갑옷제조인 
+        2. 도축업자 
+        3. 농부 
+        4. 어부 
+        5. 지도제작자 
+        6. 성직자
+        7. 화살제조인 
+        8. 석궁 
+        9. 양치기 
+        10. 도구대장장이 
+        11. 무기대장장이
+        12. 사서 
+        13. 가죽세공인
